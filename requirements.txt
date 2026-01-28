@@ -1,8 +1,8 @@
 langchain 
-langchain_huggingface 
-langchain_openai
-langchain_groq
-langchain_community
+langchain-huggingface 
+langchain-openai
+langchain-groq
+langchain-community
 datasets 
 pypdf
 python-dotenv
@@ -11,4 +11,5 @@ flask
 streamlit
 setuptools
 sentence-transformers
-langchain_astradb
+langchain-astradb
+
