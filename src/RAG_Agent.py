@@ -1,9 +1,14 @@
-from langchain_groq.chat_models import ChatGroq
+from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langgraph.checkpoint.memory import InMemorySaver
 from langchain.tools import tool
-
+from dotenv import load_dotenv
 from src.config import Config
+load_dotenv()
+import os 
+
+
 
 
 def build_flipkart_retriever_tool(retriever):
@@ -22,7 +27,11 @@ class RAGAgentBuilder:
 
     def __init__(self, vector_store):
         self.vector_store = vector_store
-        self.model = ChatGroq(model=Config.RAG_MODEL,  temperature=0)
+        self.model = ChatGroq(
+            model=Config.RAG_MODEL,    
+            temperature=0.2
+        )
+ 
 
     def build_agent(self):
         retriever = self.vector_store.as_retriever(search_kwargs={"k": 3})
